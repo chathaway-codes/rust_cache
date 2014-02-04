@@ -18,7 +18,7 @@ class CachesControllerTest < ActionController::TestCase
 
   test "should create cach" do
     assert_difference('Cach.count') do
-      post :create, cach: { location_id: @cach.location_id, notes: @cach.notes, secured: @cach.secured, server_id: @cach.server_id }
+      post :create, cach: { name: @cach.name, notes: @cach.notes, secured: @cach.secured, server_id: @cach.server_id, x: @cach.x, y: @cach.y, z: @cach.z }
     end
 
     assert_redirected_to cach_path(assigns(:cach))
@@ -35,7 +35,7 @@ class CachesControllerTest < ActionController::TestCase
   end
 
   test "should update cach" do
-    patch :update, id: @cach, cach: { location_id: @cach.location_id, notes: @cach.notes, secured: @cach.secured, server_id: @cach.server_id }
+    patch :update, id: @cach, cach: { name: @cach.name, notes: @cach.notes, secured: @cach.secured, server_id: @cach.server_id, x: @cach.x, y: @cach.y, z: @cach.z }
     assert_redirected_to cach_path(assigns(:cach))
   end
 

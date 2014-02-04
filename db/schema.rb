@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204205921) do
+ActiveRecord::Schema.define(version: 20140204214813) do
 
   create_table "caches", force: true do |t|
     t.integer  "server_id"
-    t.integer  "location_id"
+    t.string   "name"
+    t.float    "x"
+    t.float    "y"
+    t.float    "z"
     t.boolean  "secured"
-    t.string   "notes"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "caches", ["location_id"], name: "index_caches_on_location_id"
   add_index "caches", ["server_id"], name: "index_caches_on_server_id"
 
   create_table "locations", force: true do |t|

@@ -6,8 +6,23 @@
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @cach.location %>
+  <strong>Name:</strong>
+  <%= @cach.name %>
+</p>
+
+<p>
+  <strong>X:</strong>
+  <%= @cach.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @cach.y %>
+</p>
+
+<p>
+  <strong>Z:</strong>
+  <%= @cach.z %>
 </p>
 
 <p>
@@ -19,6 +34,13 @@
   <strong>Notes:</strong>
   <%= @cach.notes %>
 </p>
+
+<h3>Shared with</h3>
+<ul>
+  <% @cach.user_cach.each do |uc| %>
+    <li><%= uc.user.email %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_cach_path(@cach) %> |
 <%= link_to 'Back', caches_path %>

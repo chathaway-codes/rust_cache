@@ -2,12 +2,18 @@
 
 one:
   server_id: 
-  location_id: 
+  name: MyString
+  x: 1.5
+  'y': 1.5
+  z: 1.5
   secured: false
-  notes: MyString
+  notes: MyText
 
 two:
   server_id: 
-  location_id: 
+  name: MyString
+  x: 1.5
+  'y': 1.5
+  z: 1.5
   secured: false
-  notes: MyString
+  notes: MyText

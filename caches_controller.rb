@@ -14,8 +14,10 @@ class CachesController < ApplicationController
   # GET /caches/1
   # GET /caches/1.json
   def show
-    @cach = Cach.find(params[:id])
-    has_permission?
+    @cache = Cach.find(params[:id])
+    if !UserCach.find_by(user:current_user,cach:@cache)
+      render :file => "public/401.html", :status => :unauthorized
+    end
   end
 
   # GET /caches/new
@@ -69,36 +71,10 @@ class CachesController < ApplicationController
     end
   end
 
-  def share
-    @cach = Cach.find(params[:id])
-    has_permission?
-
-    @user_cach = UserCach.new(cach:@cach)
-  end
-
-  def share_create
-    @cach = Cach.find(params[:id])
-    params = user_cach_params
-    email = params[:user]
-    has_permission?
-    user = User.where("email = ?", email).first
-    @user_cach = UserCach.new(user:user, cach:@cach)
-    respond_to do |format|
-      if @user_cach.save
-        format.html { redirect_to @cach, notice: 'UserCach was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user_cach }
-      else
-        format.html { render action: 'share' }
-        format.json { render json: @user_cach.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cach
       @cach = Cach.find(params[:id])
-      has_permission?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -106,13 +82,7 @@ class CachesController < ApplicationController
       params.require(:cach).permit(:server_id, :name, :x, :y, :z, :secured, :notes)
     end 
 
-    def user_cach_params
-      params.require(:user_cach).permit(:user, :cach)
-    end
-
-    def has_permission?(user=current_user)
-      if !UserCach.find_by(user:user,cach:@cach)
-        render :file => "public/401.html", :status => :unauthorized
-      end
+    def has_permission
+        
     end
 end
