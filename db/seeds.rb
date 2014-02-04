@@ -17,3 +17,7 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.confirm!
 user.add_role :admin
+
+Location.new(x:0,y:0,z:0).save
+Server.new(name:"testserver").save
+

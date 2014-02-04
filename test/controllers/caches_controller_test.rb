@@ -17,7 +17,7 @@ class CachesControllerTest < ActionController::TestCase
   end
 
   test "should create cach" do
-    assert_difference('Cache.count') do
+    assert_difference('Cach.count') do
       post :create, cach: { location_id: @cach.location_id, notes: @cach.notes, secured: @cach.secured, server_id: @cach.server_id }
     end
 
@@ -40,7 +40,7 @@ class CachesControllerTest < ActionController::TestCase
   end
 
   test "should destroy cach" do
-    assert_difference('Cache.count', -1) do
+    assert_difference('Cach.count', -1) do
       delete :destroy, id: @cach
     end
 

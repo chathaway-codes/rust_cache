@@ -1,7 +1,7 @@
 RustCache::Application.routes.draw do
-  resources :locations
-
   resources :caches
+
+  resources :locations
 
   resources :servers
 
