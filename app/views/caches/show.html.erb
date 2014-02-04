@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @cach.server %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @cach.location %>
+</p>
+
+<p>
+  <strong>Secured:</strong>
+  <%= @cach.secured %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @cach.notes %>
+</p>
+
+<%= link_to 'Edit', edit_cach_path(@cach) %> |
+<%= link_to 'Back', caches_path %>

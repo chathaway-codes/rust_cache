@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  server_id: 
+  location_id: 
+  secured: false
+  notes: MyString
+
+two:
+  server_id: 
+  location_id: 
+  secured: false
+  notes: MyString

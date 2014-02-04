@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204194758) do
+ActiveRecord::Schema.define(version: 20140204195429) do
+
+  create_table "caches", force: true do |t|
+    t.integer  "server_id"
+    t.integer  "location_id"
+    t.boolean  "secured"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "caches", ["location_id"], name: "index_caches_on_location_id"
+  add_index "caches", ["server_id"], name: "index_caches_on_server_id"
+
+  create_table "locations", force: true do |t|
+    t.float    "x"
+    t.float    "y"
+    t.float    "z"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -23,6 +43,12 @@ ActiveRecord::Schema.define(version: 20140204194758) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "servers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
