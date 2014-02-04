@@ -8,5 +8,8 @@ RustCache::Application.routes.draw do
   resources :servers
 
   root :to => "home#index"
-  devise_for :users
+
+  unless ARGV.join.include?('assets:precompile')
+    devise_for :users
+  end
 end
