@@ -1,5 +1,6 @@
 class BountiesController < ApplicationController
   before_action :set_bounty, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /bounties
   # GET /bounties.json
