@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @bounty.server %>
+</p>
+
+<p>
+  <strong>Who:</strong>
+  <%= @bounty.who %>
+</p>
+
+<p>
+  <strong>Why:</strong>
+  <%= @bounty.why %>
+</p>
+
+<%= link_to 'Edit', edit_bounty_path(@bounty) %> |
+<%= link_to 'Back', bounties_path %>

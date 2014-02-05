@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204214813) do
+ActiveRecord::Schema.define(version: 20140205002956) do
+
+  create_table "bounties", force: true do |t|
+    t.integer  "server_id"
+    t.string   "who"
+    t.string   "why"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bounties", ["server_id"], name: "index_bounties_on_server_id"
 
   create_table "caches", force: true do |t|
     t.integer  "server_id"
